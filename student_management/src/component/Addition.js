@@ -6,6 +6,11 @@ function Addition() {
     <div>
       <h1>This is Addition component</h1>
       <p>The total sum is: {doubledNumbers}</p>
+      {/* <ul>
+        {
+          nums.map((index, value) => <li key={index}> {value}</li>)
+        }
+      </ul> */}
     </div>
   )
 }
