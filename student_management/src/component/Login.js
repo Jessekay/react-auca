@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Button from './Button';
+import AcademicUnit from './AcademicUnit';
 
 function Login() {
 
@@ -46,11 +48,13 @@ function Login() {
         <div>
         <br/>
       </div>
-        <button onClick={handleLogin}>Login</button>
+        {/* <button onClick={handleLogin}>Login</button> */}
+        <Button label="LOGIN" clickMe={handleLogin} styleMe={{marginRight: "20px", color: "green", backgroundColor: "yellow"}}/>
       </div>
       <div>
         <span>Don't have an account?</span>
-        <button onClick={() => setUserDoesHaveAccount(false)}>Create account</button>
+        {/* <button onClick={() => setUserDoesHaveAccount(false)}>Create account</button> */}
+        <Button label="Create account" clickMe={() => setUserDoesHaveAccount(false)} styleMe={{marginLeft: "10px", color: "blue", backgroundColor: "red"}}/>
       </div>
     </div>
       ) : (
@@ -72,11 +76,13 @@ function Login() {
           </select>
         </div>
         <div>
-          <button onClick={createAccount}>Create account</button>
+          {/* <button onClick={createAccount}>Create account</button> */}
+          <Button label="Create account" clickMe={() => setUserDoesHaveAccount(false)} styleMe={{marginLeft: "10px", color: "blue", backgroundColor: "red"}}/>
         </div>
         <div>
           <span>Already have an account?</span>
-          <button onClick={() => setUserDoesHaveAccount(true)}>Login</button>
+          {/* <button onClick={() => setUserDoesHaveAccount(true)}>Login</button> */}
+          <Button label="LOGIN" clickMe={handleLogin} styleMe={{marginRight: "20px", color: "green", backgroundColor: "yellow"}}/>
         </div>
     </div>
       )
