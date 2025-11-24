@@ -8,6 +8,15 @@ function AcademicUnit() {
     const[academicName, setAcademicName] = useState('');
     const[academicType, setAcademicType] = useState('');
 
+    const [programs, setPrograms] = useState([]);
+
+    const [parentType, setParentType] = useState('PROGRAMME');
+
+    const [savingProgram, setSavingProgram] = useState(true);
+
+    const [selectedProgram, setSelectedProgram] = useState('');
+    
+
     const saveProgram = () => {
         //alert('Academic Unit Saved!');
 
@@ -25,6 +34,14 @@ function AcademicUnit() {
          });
     }
 
+    const fetchPrograms = () => {
+        axios.get(`http://localhost:8001/api/academicUnit/findByType?type=${parentType}`).then((response) => {
+            setPrograms(response.data);
+        }).catch((err) => {
+            console.log("Error: " + err);
+        });
+    }
+
 
 
   return (
@@ -39,7 +56,7 @@ function AcademicUnit() {
             <input type="text" value={academicName} onChange={(e) => setAcademicName(e.target.value)}    placeholder='Enter Program Name' />
         </div>
         <div style={{marginRight: '10px', marginBottom: '10px'}}>
-            <label> Academic Unit Type:</label>
+            <label>Academic Unit Type:</label>
             <select value={academicType} onChange={(e) => setAcademicType(e.target.value)}>
                 <option>SELECT TYPE</option>
                 <option>PROGRAMME</option>
